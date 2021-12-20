@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS `log_id_seq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `log_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
+  `sequence` int(11) NOT NULL,
   PRIMARY KEY (`sequence`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,6 +39,7 @@ CREATE TABLE `log_table` (
   KEY `unique_id_idx` (`id`),
   KEY `ident_idx` (`ident`),
   KEY `priority_idx` (`priority`),
+  KEY `ident_priority_idx` (`ident`, `priority`),
   KEY `logscan` (`ident`,`priority`,`id`),
   KEY `get_messages_idx` (`ident`,`logtime`,`priority`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
